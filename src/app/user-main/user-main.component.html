@@ -1,0 +1,283 @@
+<!-- <div class="main"
+  fxLayout="row"
+  fxLayout.sm="column"
+  fxLayout.xs="column"
+  fxLayoutAlign="center"
+  fxLayoutGap="25px">
+
+  <mat-card class="main-card">
+    <div fxLayout="column" fxLayoutGap="70px" fxLayoutAlign="space-evenly center">
+
+      <div fxLayout="column"  fxLayoutGap="40px">
+        <button mat-stroked-button routerLink='./confirmation' routerLinkActive='active'>
+          <i class="fas fa-plus"></i> &nbsp; Book A <br> Service </button>
+      Yaha pr routerLink mai  user._id bhi dena pdegi ...
+      </div>
+
+      <div fxLayoutAlign="space-evenly center" fxLayoutGap="130px">
+        <div>
+          <mat-label>
+            <button mat-stroked-button routerLink='./previous'><i class="fas fa-backward"></i> &nbsp;
+              Show Previously <br> Booked Service</button>
+          </mat-label>
+        </div>
+        <div>
+          <mat-label>
+            <button mat-stroked-button routerLink='./status'><i class="fas fa-clock"></i> &nbsp;
+              Show Current <br> Status</button>
+          </mat-label>
+        </div>
+
+      </div>
+    </div>
+  </mat-card>
+</div>
+ -->
+
+
+
+<div class="div-top" fxLayout="column" fxLayoutGap="100px">
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+    <div>
+      <mat-card class="div-top-card">
+        <mat-card-content>
+          <img src="/assets/images/Test/BookNow.jpg" class="card-img-Book" alt="Logo">
+        </mat-card-content>
+        <mat-card-content class="card-text">
+          By clicking this button you can book a service. <br>
+          We have a list of services which you can book <br>
+          according to your need .
+        </mat-card-content>
+        <hr>
+        <button mat-flat-button routerLink='./confirmation' routerLinkActive='active' class="card-btn">
+          Book Service
+        </button>
+      </mat-card>
+    </div>
+
+    <div>
+      <mat-card class="div-top-card">
+        <mat-card-content>
+          <img src="/assets/images/Test/CurrentStatus.jpg" class="card-img-Book" alt="Logo">
+        </mat-card-content>
+        <mat-card-content class="card-text">
+          You can check current status of your booking. <br>
+          We have a list of services which you can book <br>
+          according to your need .
+        </mat-card-content>
+        <hr>
+        <button mat-flat-button class="card-btn" routerLink='./status'>
+          Check Current Status
+        </button>
+      </mat-card>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+    <div>
+      <mat-card class="div-top-card">
+        <mat-card-content>
+          <img src="/assets/images/Test/PreviousBooked.jpg" class="card-img-Book" alt="Logo">
+        </mat-card-content>
+        <mat-card-content class="card-text">
+          You can check Previously Booked Services. <br>
+          We have a list of services which you can book <br>
+          according to your need .
+        </mat-card-content>
+        <hr>
+        <button mat-flat-button routerLink='./previous' class="card-btn">
+          Previous Booked Services
+        </button>
+      </mat-card>
+    </div>
+
+    <div>
+      <mat-card class="div-top-card">
+        <mat-card-content>
+          <img src="/assets/images/Test/Feedback.jpg" class="card-img-Book" alt="Logo">
+        </mat-card-content>
+        <mat-card-content class="card-text">
+          You can check Previously Booked Services. <br>
+          We have a list of services which you can book <br>
+          according to your need .
+        </mat-card-content>
+        <hr>
+        <button  mat-flat-button (click)="openFeedbackForm()" class="card-btn">
+          Give Feedback
+        </button>
+      </mat-card>
+    </div>
+  </div>
+
+  <div style="background-color: white; height: 930px;" fxLayout="column" fxLayoutGap="70px">
+    <div fxFlexOffset="50px" fxFlexAlign="center">
+      <mat-label style="background-color: white; font-size: 32px;
+    font-weight: bold;">
+        Daily &nbsp; Required &nbsp; Services </mat-label><br><br>
+      &nbsp;&nbsp;
+      <mat-label style="color: grey; font-size: 26px; font-weight: bold; ">
+        Skilled and Trained Karigars</mat-label>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <div>
+        <img src="../../assets/images/AfterLogin/Electrician.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 100px; font-size: 20px;">Electrician</mat-label>
+      </div>
+
+      <div>
+        <img src="../../assets/images/AfterLogin/Carpenter.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 100px; font-size: 20px;">Carpenter</mat-label>
+      </div>
+
+      <div>
+        <img src="../../assets/images/AfterLogin/Plumber.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 100px; font-size: 20px;">Plumber</mat-label>
+      </div>
+
+      <div>
+        <img src="../../assets/images/AfterLogin/Painter.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 100px; font-size: 20px;">Painter</mat-label>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <div>
+        <img src="../../assets/images/AfterLogin/HomeApplicances.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 75px; font-size: 20px;">Home Applicances</mat-label>
+      </div>
+
+      <div>
+        <img src="../../assets/images/AfterLogin/Laundry.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 100px; font-size: 20px;"> Laundry </mat-label>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="background-color: white; height: 570px;" fxLayout="column" fxLayoutGap="70px">
+    <div fxFlexOffset="50px" fxFlexAlign="center">
+      <mat-label style="background-color: white; font-size: 32px;
+    font-weight: bold; margin-left: 50px;">
+        Cleaning & Pest Control</mat-label><br><br>
+      &nbsp;&nbsp;
+      <mat-label style="color: grey; font-size: 26px; font-weight: bold; ">
+        Maintaining hygiene by removing all dirt</mat-label>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <div>
+        <img src="../../assets/images/AfterLogin/CarCleaning.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 100px; font-size: 20px;">Car Cleaning</mat-label>
+      </div>
+
+      <div>
+        <img src="../../assets/images/AfterLogin/HomeCleaning.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 100px; font-size: 20px;">Home Cleaning</mat-label>
+      </div>
+
+      <div>
+        <img src="../../assets/images/AfterLogin/PestContol.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 100px; font-size: 20px;">Pest Control</mat-label>
+      </div>
+
+      <div>
+        <img src="../../assets/images/AfterLogin/WaterTankCleaning.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 90px; font-size: 20px;">Water Tank Cleaning</mat-label>
+      </div>
+    </div>
+  </div>
+
+  <div style="background-color: white; height: 510px;" fxLayout="column" fxLayoutGap="30px">
+    <div fxFlexOffset="50px" fxFlexAlign="center">
+      <mat-label style="background-color: white; font-size: 32px;
+    font-weight: bold; ">
+        Other Services We Offer</mat-label><br>
+      &nbsp;&nbsp;
+      <mat-label style="color: grey; font-size: 26px; font-weight: bold; ">
+      </mat-label>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+      <div>
+        <img src="../../assets/images/AfterLogin/Fabrication.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 90px; font-size: 20px;"> Fabrication </mat-label>
+      </div>
+
+      <div>
+        <img src="../../assets/images/AfterLogin/Mistri.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 105px; font-size: 20px;"> Mistri </mat-label>
+      </div>
+
+      <div>
+        <img src="../../assets/images/AfterLogin/Photographer.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 100px; font-size: 20px;">Photographer</mat-label>
+      </div>
+
+      <div>
+        <img src="../../assets/images/AfterLogin/PackersandMovers.jpg" class="img-dailyservices"><br><br>
+        <mat-label style="margin-left: 90px; font-size: 20px;">Packer & Movers</mat-label>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="space-evenly center" >
+  <div class="div-textonimage">
+    <div fxLayout="column" fxFlexOffset="85px">
+      <mat-label style="margin-top: 60px;" class="text-onimg1">
+        Your local, trusted <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Karigars </mat-label>
+      <mat-label style="  color: white;">
+        You can easily get karigars in the time slot you choose.
+      </mat-label>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center end" fxFlexOffset="250px">
+      <div style="margin-top: 350px; margin-right: 42px;">
+        <mat-label style=" color: white;">
+          <i class="fas fa-check"></i> &nbsp;
+          On demand service .
+        </mat-label>
+      </div>
+      <div style="margin-top: 10px; margin-right: 60px;">
+        <mat-label style=" color: white;">
+          <i class="fas fa-check"></i> &nbsp;
+          On time Karigars .
+        </mat-label>
+      </div>
+      <div style="margin-top: 10px;">
+        <mat-label style=" color: white;">
+          <i class="fas fa-check"></i> &nbsp;
+          Skilled & trusted Karigars .
+        </mat-label>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top: 70px; background-color: rgb(108, 185, 248); height: 280px;" fxLayout="row"
+  fxLayoutAlign="center" fxLayoutGap="20px">
+  <div fxLayoutGap="30px">
+    <mat-label style="font-size: 65px; ">
+      <i class="fas fa-quote-left"></i>
+    </mat-label>
+  </div>
+  <div fxFlexAlign="center">
+    <mat-label style="font-size: 33px; ">
+      We provide the best platform to interact with Karigar.
+    </mat-label>
+    <br><br>
+    <mat-label style="margin-left: 700px; margin-top: 35px;"> -karigar.in </mat-label>
+  </div>
+</div>
+
+<div style="margin-top: 70px; margin-bottom: 70px;  background-color: white;" fxLayout="column"
+  fxLayoutAlign="space-evenly center" fxLayoutGap="30px">
+  <div>
+    <img src="../../assets/images/Test/Model.jpg" width="1330px" height="400px">
+  </div>
+  <div>
+    <mat-label style="font-size: 25px; font-weight: bold; word-spacing: 1px;">
+      We assure you to provide the best, in-time services.
+    </mat-label>
+  </div>
+</div>

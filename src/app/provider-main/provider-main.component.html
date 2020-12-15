@@ -1,0 +1,114 @@
+<!-- <div class="container" fxLayout="row" fxLayoutAlign="center">
+
+    <mat-card class="main-card">
+      <div fxLayout="column" fxLayoutAlign="space-evenly">
+        <mat-card-actions>
+          <div fxLayoutGap="150px">
+
+              <button mat-raised-button routerLink="./status">
+                <span class="material-icons">hourglass_empty</span>
+                Status of<br>Accepting Service
+              </button>
+              <button mat-raised-button routerLink="./previous">
+                <span class="material-icons">history</span>
+                Check Previous<br>Orders
+              </button>
+          </div>
+        </mat-card-actions>
+
+      <div fxLayout="column">
+        <mat-card-actions>
+          <div fxLayoutGap="150px">
+
+          <button mat-raised-button (click)="openInstantSolution()">
+            <i class="fab fa-whatsapp"></i>
+            Instant Solution<br>For Any Query</button>
+          </div>
+        </mat-card-actions>
+      </div>
+    </div>
+    </mat-card>
+  </div>
+
+ --------Testing------
+ <div class="tooltip">Hover over me
+  <span class="tooltiptext">Tooltip text</span>
+</div>
+----------------------------- -->
+
+
+<div class="div-top" fxLayout="column" fxFlexOffset="180px">
+  <div fxLayout="row" fxLayoutGap="140px">
+    <div>
+      <mat-card class="div-top-card">
+        <mat-card-content>
+          <img src="/assets/images/Test/AcceptingServices.jpg" class="card-img-Book" alt="Logo">
+        </mat-card-content>
+        <mat-card-content class="card-text">
+          By clicking this button you can check status of your order. <br>
+          We have a list of services which you can book <br>
+          according to your need .
+        </mat-card-content>
+        <hr>
+        <button mat-flat-button class="card-btn" routerLink="./status">
+          Check current order
+        </button>
+      </mat-card>
+    </div>
+
+    <div>
+      <mat-card class="div-top-card">
+        <mat-card-content>
+          <img src="/assets/images/Test/PreviousBooked.jpg" class="card-img-Book" alt="Logo">
+        </mat-card-content>
+        <mat-card-content class="card-text">
+          By clicking button below ,you can check previous orders. <br>
+          We have a list of services which you can book <br>
+          according to your need .
+        </mat-card-content>
+        <hr>
+        <button mat-flat-button class="card-btn" routerLink="./previous">
+          Check Previous Orders
+        </button>
+      </mat-card>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxFlexOffset="120px" fxLayoutGap="140px">
+    <div>
+      <mat-card style="margin-bottom: 60px;" class="div-top-card">
+        <mat-card-content>
+          <img src="/assets/images/Test/InstantSolution.jpg" class="card-img-Book" alt="Logo">
+        </mat-card-content>
+        <mat-card-content class="card-text">
+          By clicking the button below you can get solution instantly. <br>
+          We have a list of services which you can book <br>
+          according to your need .
+        </mat-card-content>
+        <hr>
+        <button mat-flat-button (click)="openInstantSolution()" class="card-btn">
+          Instant Solution
+        </button>
+      </mat-card>
+    </div>
+
+    <div>
+      <mat-card style="margin-bottom: 60px;" class="div-top-card">
+        <mat-card-content>
+          <img src="/assets/images/Test/Feedback.jpg" class="card-img-Book" alt="Logo">
+        </mat-card-content>
+        <mat-card-content class="card-text">
+          You can check Previously Booked Services. <br>
+          We have a list of services which you can book <br>
+          according to your need .
+        </mat-card-content>
+        <hr>
+        <button (click)="openFeedbackForm()"  mat-flat-button class="card-btn">
+          Give Feedback
+        </button>
+      </mat-card>
+    </div>
+  </div>
+ </div>
+
+

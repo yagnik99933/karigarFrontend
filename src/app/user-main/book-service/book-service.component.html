@@ -1,0 +1,232 @@
+<div  style="margin-top: 20px;" fxLayoutAlign="center" fxLayoutGap="10px">
+
+  <div class="div-main" fxLayout="column" fxFlexAlign="center">
+    <div style="padding: 0px;">
+      <div @Fade class="div-slideShow" *ngFor="let slide of slides; let i = index">
+        <img class="slide" *ngIf="i === currentSlide" [src]="slide.src" alt="Image1">
+        <!-- controls -->
+        <!-- <button class="control prev" (click)="onPreviousClick()">
+          <span class="arrow left"></span>
+        </button>
+        <button class="control next" (click)="onNextClick()">
+          <span class="arrow right"></span>
+        </button> -->
+      </div>
+    </div>
+
+    <mat-card style="margin-top: 30px;">
+
+      <h1 class="div-main-heading">
+        <!-- Welcome {{ this.personName | uppercase}} , <br><br> -->
+        Service Booking Section :</h1>
+      <mat-horizontal-stepper>
+
+        <!-- 1 Step -->
+        <mat-step [stepControl]="bookingControl">
+          <ng-template matStepLabel>
+            Details
+          </ng-template>
+          <h3 class="step-title"> - City and Service -</h3>
+
+          <form noValidate [formGroup]="bookingControl" (ngSubmit)="booking()">
+            <div class="div-name" fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="space-evenly center">
+              <div style="margin-top: 120px;">
+
+                <p>Select your city :</p>
+                <mat-form-field style="width:250px;" class="form-field" appearance="outline">
+                  <mat-label>City</mat-label>
+                  <mat-select formControlName="city" name="city">
+                    <mat-option class="dropdown-list" *ngFor="let city of cities" [value]="city.value">
+                      {{ city.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div>
+                <p>Select service you need :</p>
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label> Services</mat-label>
+                  <mat-select formControlName="serviceType">
+                    <mat-optgroup class="dropdown-list" *ngFor="let group of serviceGroups" [label]="group.name"
+                      [disabled]="group.disabled">
+                      <mat-option *ngFor="let service of group.services" [value]="service.value" #service>
+                        {{ service.viewValue }}
+                      </mat-option>
+                    </mat-optgroup>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="step-title"> - Name & Address -</h3>
+            </div>
+            <div class="div-name" fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="space-evenly center">
+              <div>
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label> Enter Name </mat-label>
+                  <input matInput type="text" placeholder="Ex. Rohit Sharma" name="name" formControlName="name">
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label> Contact Number</mat-label>
+                  <input matInput type="tel" placeholder="9876543210" name="mobileNo" formControlName="mobileNo">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="div-name" fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="space-evenly center">
+              <div>
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label>Address Line - 1</mat-label>
+                  <input matInput type="text" placeholder="23/A " name="houseNo" formControlName="houseNo">
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label>Address Line - 2</mat-label>
+                  <input matInput type="text" placeholder="Vikas Nagar" name="colony" formControlName="colony">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="div-name" fxLayoutGap="50px" fxLayoutAlign="space-evenly center">
+              <div class="div-area" *ngIf="bookingControl.value.city =='Indore'">
+
+                <ng-select class="form-field" [items]="areas" placeholder="Can select your area" appendTo="body"
+                  [multiple]="false" formControlName="area" name="area">
+                  <ng-template ng-option-tmp let-item="item">
+                    <!-- <input [checked]="bookingControl.value.area.indexOf(item) > -1" type="checkbox"> -->
+                    {{item}}
+                  </ng-template>
+                </ng-select>
+              </div>
+
+              <div>
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label>Landmark</mat-label>
+                  <input matInput type="text" placeholder="Ex. Infront/Behind of xyz" formControlName="landmark"
+                    name="landmark">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="step-title"> - Schehdule Date & Time -</h3>
+            </div>
+            <div class="div-name" fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="space-evenly center">
+              <div>
+                <mat-form-field class="form-field" appearance="outline">
+                  <input matInput placeholder="Select Date" [matDatepicker]="datepickerRef" name="date"
+                    formControlName="date" readonly>
+                  <mat-datepicker-toggle [for]="datepickerRef" matSuffix></mat-datepicker-toggle>
+                  <mat-datepicker #datepickerRef></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label>Select Time Slot</mat-label>
+                  <mat-select formControlName="timeSlot" name="timeSlot">
+                    <mat-option *ngFor="let timeslot of timeSlot" [value]="timeslot.value">
+                      {{timeslot.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="btn-div">
+              <mat-card-actions>
+                <button class="btn" matStepperNext mat-stroked-button type="button">
+                  <i class="fas fa-hand-point-right"></i>&nbsp; NEXT</button>
+              </mat-card-actions>
+            </div>
+          </form>
+          <!-- Yaha ek step end -->
+        </mat-step>
+
+        <!-- 2 Step -->
+        <mat-step>
+          <ng-template matStepLabel>Confirmation</ng-template>
+          <h3 class="step-title">Please Confirm your order details</h3>
+          <div>
+            <mat-list>
+              <mat-list-item>
+                <mat-label class="list-confirmation-txt">
+                  Service &nbsp;&nbsp;: &nbsp;&nbsp;{{ bookingControl.value.serviceType }}
+                </mat-label>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-label class="list-confirmation-txt">
+                  Address &nbsp;&nbsp;: &nbsp;&nbsp;{{ bookingControl.value.houseNo }} &nbsp;
+                  {{ bookingControl.value.colony }}
+                  &nbsp; {{ bookingControl.value.area }}
+                </mat-label>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-label class="list-confirmation-txt">
+                  Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;
+                  {{ bookingControl.value.date | date }}
+                </mat-label>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-label class="list-confirmation-txt">
+                  Timing &nbsp;&nbsp;: &nbsp;&nbsp;{{ bookingControl.value.timeSlot }}
+                </mat-label>
+              </mat-list-item>
+
+              <!-- <mat-list-item>
+                <mat-label class="list-confirmation-txt">
+                  Inspection Charges &nbsp;&nbsp;:&nbsp;&nbsp; Rs. 49 only/-
+                </mat-label>
+              </mat-list-item> -->
+            </mat-list>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="70px" class="btn-div">
+            <div fxFlexAlign="center">
+              <button class="btn" matStepperPrevious mat-stroked-button type="button">
+                Back
+              </button>
+            </div>
+            <div>
+              <button class="btn" matStepperNext mat-stroked-button type="button" type="submit" (click)="booking()">
+                Book!!
+              </button>
+            </div>
+          </div>
+        </mat-step>
+
+        <!-- 3 Step -->
+        <!-- <mat-step>
+
+          <ng-template matStepLabel> Payment </ng-template>
+          <div fxLayout="column" fxFlexAlign="center">
+            <div>
+              <h3 style="letter-spacing: 2px; word-spacing: 2px;">
+                Payment Options :
+              </h3>
+              <mat-label> All types of payment mode available</mat-label>
+            </div>
+            <div fxLayout="row" fxLayoutGap="40px" fxFlexAlign="center">
+              <i style="height: 50px; width: 50px;" class="fab fa-cc-visa"></i>
+              <i style="height: 50px; width: 50px;" class="fas fa-credit-card"></i>
+              <i style="height: 50px; width: 50px;" class="fab fa-cc-mastercard"></i>
+            </div>
+            <div style="margin-left: 600px; margin-top: 40px;">
+
+              <button style="background-color: rgb(202, 199, 199); font-weight: bold;" class="btn" matStepperNext
+                mat-raised-button >
+
+                <span style=" color: rgb(11, 11, 148);">PAY</span>
+                <span style="color: rgb(42, 147, 245); margin-left: 4px;">NOW</span>
+              </button>
+          </div>
+        </div>
+        </mat-step> -->
+      </mat-horizontal-stepper>
+    </mat-card>
+  </div>
+</div>
+
+<!-- <div [innerHTML]="this.htmlString" *ngIf="paymentSuccess">
+</div> -->

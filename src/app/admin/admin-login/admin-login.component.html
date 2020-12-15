@@ -1,0 +1,55 @@
+<div  fxLayout="column" fxLayoutAlign="space-evenly center">
+  <div>
+    <h1>L O G I N</h1>
+  </div>
+  <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <div >
+      <mat-form-field appearance="outline"
+      [hideRequiredMarker]="hideRequiredControl.value">
+      <mat-label>Enter Username</mat-label>
+
+      <input matInput placeholder="Username" type="text" [(ngModel)]="user.username"
+       name="username" #username="ngModel" required>
+       <!-- If username invalid -->
+       <label [hidden]="username.untouched || username.valid"
+        *ngIf="username.errors?.required" matSuffix matTooltip="Username Required">
+        <mat-icon id="error_symbol" class="material-icons">
+          error_outline
+        </mat-icon>
+      </label>
+    </mat-form-field>
+  </div>
+
+  <!-- Enter Password -->
+  <div>
+    <mat-form-field appearance="outline"
+    [hideRequiredMarker]="hideRequiredControl.value">
+      <mat-label>Enter password</mat-label>
+
+      <input matInput [type]="hide ? 'password' : 'text'"
+        placeholder="******" name="password" [(ngModel)]="user.password"
+        #password="ngModel" required >
+
+      <button [hidden]="password.isDisabled" style="font-size: 10px;"
+        type="button" mat-icon-button matSuffix (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'" [attr.aria-pressed]= "hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <!-- if password invalid  -->
+      <label [hidden]="password.untouched || password.valid"
+      *ngIf="password.errors?.required" matSuffix>
+        <mat-icon id="error_symbol" class="material-icons">
+          error_outline
+        </mat-icon>
+       </label>
+      <!-- Yaha eye-symbol replace nahi ho rha hai error-symbol se -->
+    </mat-form-field>
+
+    <div style="margin-top: 30px; text-align: center;" >
+        <span class="flex-spacer"></span>
+        <button class="btn-login" mat-raised-button type="submit"><span> Login</span></button>
+    </div>
+    </div>
+  </form>
+
+</div>

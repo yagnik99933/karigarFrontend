@@ -1,0 +1,153 @@
+<div class="container" fxLayout="column" fxLayoutAlign="space-evenly center">
+  <mat-card *ngIf="this.bookingCount != 0" class="card-outer">
+    <h1 class="heading">List of Active Bookings</h1><hr>
+    <div fxLayoutGap="40px">
+      <mat-card *ngFor="let booking of bookingList" class="card-inner">
+
+        <h2 style="text-align: center; color: mediumblue; letter-spacing: 2px;">
+          Booking ({{ booking.createdAt | date:'shortTime' }})
+        </h2>
+        <div style="margin-top: 30px;">
+          <mat-card-content>
+            <mat-label class="text">
+              <i class="fas fa-toolbox"></i>
+              Service &nbsp;:&nbsp; {{ booking.serviceType | titlecase}}
+            </mat-label>
+            <mat-label style="margin-left: 330px; color: rgb(246, 45, 27);" class="text">
+              Karigar Alloted Details:
+            </mat-label>
+            <br><br>
+            <mat-label class="text">
+              <i class="fas fa-clock"></i>
+              Time &nbsp;&nbsp;&nbsp;:&nbsp; {{ booking.timeSlot }}
+            </mat-label>
+            <mat-label class="text spacer">
+              <i class="fas fa-user-cog"></i>
+              Name of Karigar : {{ booking.providerName | titlecase}}
+              <span *ngIf="booking.providerName == ''">
+                - No Karigar Alloted -
+              </span>
+            </mat-label>
+            <br><br>
+            <mat-label class="text">
+              <i class="fas fa-calendar-check"></i>
+              Date &nbsp;:&nbsp; {{ booking.date | date }}
+            </mat-label>
+            <mat-label style="margin-left: 330px;" class="text spacer">
+              <i class="fas fa-phone-alt"></i>
+              Contact Number : {{ booking.providerNo }}
+              <span *ngIf="booking.providerNo == 0">
+                - No Karigar Alloted -
+              </span>
+            </mat-label>
+          </mat-card-content>
+        </div>
+        <div style="margin-top: 40px;">
+          <mat-accordion>
+            <mat-expansion-panel (click)="urlChanging()" [routerLink]="['./',booking._id]">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="expansion-title">
+                  Change Time Slot And Date
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                  Type your name and age
+                  <mat-icon>account_circle</mat-icon>
+                </mat-panel-description> -->
+
+              </mat-expansion-panel-header>
+              <form noValidate [formGroup]="changeControl" (ngSubmit)="change()">
+                <mat-form-field style="width:250px; margin-left: 60px; font-size: 16px;"
+                  appearance="outline">
+                  <mat-label>Select Time Slot</mat-label>
+                  <mat-select formControlName="timeSlot" name="timeSlot" required>
+                    <mat-option *ngFor="let timeslot of timeSlot" [value]="timeslot.value">
+                      {{timeslot.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field style="width:250px; margin-left: 50px; font-size: 16px;"
+                  appearance="outline">
+                  <input matInput placeholder="Select Date" [matDatepicker]="datepickerRef"
+                  name="date" formControlName="date" readonly>
+                  <mat-datepicker-toggle [for]="datepickerRef" matSuffix></mat-datepicker-toggle>
+                  <mat-datepicker #datepickerRef></mat-datepicker>
+                </mat-form-field>
+                <br>
+                <mat-label class="text-inexpansion">
+                  You can Time Slot and Date of your booking.
+                </mat-label>
+                <mat-action-row>
+                  <button mat-flat-button class="btn" type="submit">Change Slot</button>
+                </mat-action-row>
+              </form>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (click)="urlChanging()" [routerLink]="['./',booking._id]">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="expansion-title">
+                  Cancel Booking
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-label class="text-inexpansion">
+                If you opt this option , booking will be Cancelled.
+                If Provider is alloted to you then no refund will be provided.
+              </mat-label>
+              <mat-action-row>
+                <button mat-flat-button style="background-color: red;" class="btn"
+                  (click)="cancel()">
+                  Cancel Booking
+                </button>
+              </mat-action-row>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (click)="urlChanging()" [routerLink]="['./',booking._id]">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="expansion-title">
+                  Make Another Booking
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-label class="text-inexpansion">
+                Click the button below to make another booking.
+              </mat-label>
+              <mat-action-row>
+                <button mat-flat-button class="btn" (click)="makeBooking()">Make a booking</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (click)="urlChanging()" [routerLink]="['./',booking._id]">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="expansion-title">
+                  Service Successfull
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-label  class="text-inexpansion">
+                Click the button below when service is complete.
+              </mat-label>
+              <mat-action-row>
+                <button mat-button class="btn" (click)="makeBooking()">
+                  Service Complete
+                </button>
+              </mat-action-row>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-card>
+
+
+
+    </div>
+
+    <div class="spinner" [hidden]="bookingList">
+      <mat-spinner mode="indeterminate"></mat-spinner>
+      <h4 style="letter-spacing: 1px; text-align: center;">
+        Loading . . . . Please Wait
+      </h4>
+    </div>
+  </mat-card>
+ <!-- If There no Active Bookings -->
+<mat-card *ngIf="this.bookingCount == 0" style="text-align: center; margin-top: 50px; width: 500px; height: 300px;">
+  <h1 class="heading">List of Active Bookings</h1><hr>
+  <h2> No Bookings right now..!!!</h2>
+</mat-card>
+</div>

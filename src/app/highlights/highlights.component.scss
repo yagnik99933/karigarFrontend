@@ -1,0 +1,33 @@
+.container{
+  // background-image: url("/assets/images/highlights-page.jpg");
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+
+.main-tabs{
+  height: 1000px;
+  width: 1000px;
+  border-spacing: 30px;
+}
+
+.btn{
+  background-color: black;
+  color: white;
+}
+
+.spacer{
+  margin-left: 10px;
+}
+
+.feedback-form{
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 20px;
+  border-style: outset;
+  text-align: center;
+}
+
+mat-slider {
+  width: 350px;
+}

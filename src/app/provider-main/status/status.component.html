@@ -1,0 +1,78 @@
+<div class="container" fxLayout="column">
+  <mat-card class="card">
+    <h1 class="card-heading">List of Active Orders</h1>
+    <div fxLayout="column" fxLayoutGap="15px">
+      <mat-card *ngFor="let order of orderList" class="card-inner">
+
+        <h2 style="text-align: center; color: mediumblue; letter-spacing: 2px;">
+          Order ({{ order.updatedAt | date:'shortTime' }})
+        </h2>
+
+
+        <mat-card-content>
+          <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center">
+
+            <mat-label class="text">
+              <i style="height: 22px; width: 24px;" class="fas fa-user-tie"></i>
+              Name &nbsp;&nbsp;: <span style="margin-left: 35px;">{{ order.name | uppercase}}</span>
+            </mat-label>
+
+            <mat-label class="text">
+              <i style="height: 22px; width: 24px;" class="fas fa-phone-alt"></i>
+              Contact No. &nbsp;:&nbsp; {{ order.mobileNo }}
+            </mat-label>
+
+            <mat-label class="text">
+              <i style="height: 22px; width: 24px;" class="fas fa-address-card"></i>
+              Address &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; {{ order.houseNo }}&nbsp;{{ order.colony }}
+              &nbsp;{{ order.landmark }},&nbsp;{{ order.city }}
+            </mat-label>
+
+            <mat-label class="text">
+              <i style="height: 22px; width: 24px;" class="fas fa-calendar-check"></i>
+              Date &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; {{ order.date | date }}
+            </mat-label>
+
+            <mat-label class="text">
+              <i style="height: 22px; width: 24px;" class="fas fa-clock"></i>
+              TimeSlot &nbsp;&nbsp;:&nbsp;&nbsp; {{ order.timeSlot }}
+            </mat-label>
+            <br>
+          </div>
+        </mat-card-content>
+        <div>
+          <mat-accordion>
+            <mat-expansion-panel (click)="urlChanging()" [routerLink]="['./',order._id]">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Cancel Booking
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <mat-label>
+                If you opt this option , booking will be Cancelled.
+              </mat-label>
+
+              <mat-action-row>
+                <button mat-button (click)="cancel()">Cancel Booking</button>
+                <!-- <button mat-button color="primary" (click)="">Next</button> -->
+              </mat-action-row>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-card>
+    </div>
+
+    <div *ngIf="this.orderCount == 0" style="text-align: center; margin-top: 50px;">
+      <h2> No Orders available right now..!!!</h2>
+    </div>
+
+    <div class="spinner" [hidden]="orderList">
+      <mat-spinner mode="indeterminate"></mat-spinner>
+      <h4 style="letter-spacing: 1px; text-align: center;">
+        Loading . . . . Please Wait
+      </h4>
+    </div>
+
+  </mat-card>
+</div>

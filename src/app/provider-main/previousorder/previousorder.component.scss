@@ -1,0 +1,36 @@
+.main-card {
+  margin-top: 40px;
+  width: 950px;
+}
+
+.text-heading {
+  letter-spacing: 3px;
+  word-spacing: 4px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+
+.no-previous{
+  // background-image: url('/assets/images/NoPrevious/NoPrevious.jpg');
+  background-color: rgb(214, 223, 247);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 460px;
+  width: 920px;
+}
+.spinner {
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // -moz-transform: translateX(-50%) translateY(-50%);
+  // -webkit-transform: translateX(-50%) translateY(-50%);
+  // transform: translateX(-50%) translateY(-50%);
+}

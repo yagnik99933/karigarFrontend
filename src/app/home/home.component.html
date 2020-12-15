@@ -1,0 +1,225 @@
+<div class="container" fxLayout="column" fxLayout.xs="row" fxLayoutAlign="space-evenly center" fxLayoutGap="80px">
+  <!-- <img style="width: 1000px; height: 400px;" src="/assets/images/giphy.gif" /> -->
+
+  <!-- <div fxFlex="100" fxLayout="row" fxFlexOffset="30px" fxFlexAlign="center" class="heading">
+    <mat-label>
+      <p> W E L C O M E </p>
+    </mat-label>
+  </div> -->
+
+  <mat-card style="padding: 0px;">
+    <div class="div-slideShow" *ngFor="let slide of slides; let i = index">
+      <img class="slide" *ngIf="i === currentSlide" [src]="slide.src" alt="Image1">
+      <!-- controls -->
+      <button class="control prev" (click)="onPreviousClick()">
+        <span class="arrow left"></span>
+      </button>
+      <button class="control next" (click)="onNextClick()">
+        <span class="arrow right"></span>
+      </button>
+    </div>
+  </mat-card>
+
+    <!-- <ngb-carousel [showNavigationArrows]="true"
+    [showNavigationIndicators]="true"
+    interval="12000"
+    [keyboard]="true"
+    [pauseOnHover]="true"
+    [wrap]="true"
+    [activeId]="'secondSlide'">
+
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="/assets/images/homepage/home1.jpg" alt="Angular Carousel 1">
+        </div>
+        <div class="carousel-caption">
+          <h3>Title Goes Here</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="/assets/images/homepage/home2.jpg" alt="Angular Carousel 2">
+        </div>
+        <div class="carousel-caption">
+          <h3>Title Goes Here</h3>
+          <p>Consectetur tortor volutpat pretium.</p>
+        </div>
+      </ng-template>
+
+    </ngb-carousel> -->
+
+
+
+  <div id="register">
+    <mat-card class="card-registration">
+        <div style="text-align: center; font-size: 24px; font-weight: bold;
+        letter-spacing: 3px; margin-bottom: 35px;">
+          Join Karigar Now
+          <i class="fas fa-arrow-right"></i>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+          <!-- user registration btn -->
+        <div class="card-reg" fxLayout="column" fxLayoutGap="7px" >
+          <mat-label style="font-size: 40px; text-align: center;">
+            <i class="fas fa-user-tie"></i>
+          </mat-label>
+          <button mat-raised-button class="btn-register" [routerLink]="['./registeruser']"
+          (click)="openUserRegistrationForm()">
+            User Registration
+          </button>
+        </div>
+        <!-- karigar registration btn -->
+        <div class="card-reg" fxLayout="column"  fxLayoutGap="7px">
+          <mat-label style="font-size: 40px; text-align: center;">
+            <i class="fas fa-user-cog"></i>
+          </mat-label>
+          <button mat-raised-button class="btn-register" [routerLink]="['./registerprovider']"
+          (click)="openProviderRegistrationForm()">
+            Karigar Registration
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+
+  <div fxLayout="column" fxLayoutGap="20px" id="services">
+    <mat-card>
+      <div>
+        <mat-toolbar style="background-color: rgba(28, 201, 207, 0.65);">
+          <p class="heading-serviceicons">
+            Services We Offer :
+          </p>
+        </mat-toolbar>
+      </div>
+
+      <div style="margin-top: 35px;" fxLayoutAlign="space-evenly center" fxLayoutGap="80px">
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/Electrician.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Electrician</p>
+          </mat-label>
+        </button>
+
+
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/Painter.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Painter</p>
+          </mat-label>
+        </button>
+
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/Plumber.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Plumber</p>
+          </mat-label>
+        </button>
+      </div>
+
+      <div class="s" fxLayoutAlign="space-evenly center" fxLayoutGap="80px">
+
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/Carpenter.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Carpenter</p>
+          </mat-label>
+        </button>
+
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/Laundry.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Laundry</p>
+          </mat-label>
+        </button>
+
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/PestControl.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Pest &nbsp; Control</p>
+          </mat-label>
+        </button>
+      </div>
+
+      <div class="s" fxLayoutAlign="space-evenly center" fxLayoutGap="80px">
+
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/HomeCleaning.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Home &nbsp; Cleaning</p>
+          </mat-label>
+        </button>
+
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/CarSpa.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Car &nbsp; Cleaning</p>
+          </mat-label>
+        </button>
+
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/Fabrication.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Fabrication</p>
+          </mat-label>
+        </button>
+      </div>
+
+      <div class="s" fxLayoutAlign="space-evenly center" fxLayoutGap="80px">
+
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/Packer&Mover.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Packer &nbsp; And &nbsp; Movers</p>
+          </mat-label>
+        </button>
+
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/Mistri.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Mistri</p>
+          </mat-label>
+        </button>
+
+        <button class="btn-serviceicons" mat-raised-button>
+          <mat-label>
+            <img src="/assets/images/homepage/HomeAppliances.jpg" alt="Logo" class="img-serviceicons">
+            <p class="img-servicelabel">
+              Home Appliances</p>
+          </mat-label>
+        </button>
+      </div>
+
+
+      <div class="s">
+        <mat-label class="label">
+          And many more services. Please register for more information.
+        </mat-label>
+      </div>
+
+      <div class="s" fxFlexAlign="end">
+        <button mat-raised-button class="btn-register" style="height: 40px;"
+          (click)="toRegister()">
+          Register Now
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+
+</div>
+
+<div class="div-whyus" fxLayout="column" fxLayoutAlign="space-evenly center"></div>

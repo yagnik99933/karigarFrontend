@@ -1,0 +1,74 @@
+<mat-toolbar class="toolbar">
+  -R E G I S T R A T I O N-
+<span class="flex-spacer"></span>
+<button mat-raised-button mat-dialog-close style="font-size: 25px; color: white; background-color: black;">
+  &times;</button>
+</mat-toolbar>
+
+<div fxLayout="column" >
+
+  <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div fxLayout="column" fxLayoutAlign="center">
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+        <mat-form-field appearance="outline" style="width: 200px; font-size: 15px;"
+          [hideRequiredMarker]="hideRequiredControl.value">
+          <mat-label> Mobile Number </mat-label>
+          <input matInput placeholder="Ex-9876543210" formControlName="mobileNo" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 200px; font-size: 15px;"
+          [hideRequiredMarker]="hideRequiredControl.value">
+          <mat-label> Email </mat-label>
+          <input matInput formControlName="email" placeholder="Ex. abc@xyz.com" required>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <mat-form-field appearance="outline" style="width: 200px; font-size: 15px;"
+          [hideRequiredMarker]="hideRequiredControl.value">
+          <mat-label> Password </mat-label>
+          <input matInput type="password" placeholder="********" formControlName="password" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 200px; font-size: 15px;"
+          [hideRequiredMarker]="hideRequiredControl.value">
+          <mat-label> Confirm Password </mat-label>
+          <input matInput type="password" placeholder="********" formControlName="confirmPassword" required>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <mat-form-field appearance="outline" style="width: 200px; font-size: 15px;"
+          [hideRequiredMarker]="hideRequiredControl.value">
+          <mat-label> Name </mat-label>
+          <input matInput formControlName="name" placeholder="Ex. Rohit Sharma" required>
+        </mat-form-field>
+        <!-- <p>Please select your city:</p> -->
+        <mat-form-field appearance="outline" style="width: 200px; font-size: 15px;">
+          <mat-label>Select City</mat-label>
+          <mat-select formControlName="city" name="city">
+            <mat-option *ngFor="let city of cities" [value]="city.value">
+              {{ city.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <mat-checkbox color="primary" required>
+          By registring you agree the terms and conditions
+        </mat-checkbox>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+          <button class="btn" mat-button mat-dialog-close>Cancel</button>
+          <button class="btn" [disabled]="form.invalid" mat-raised-button
+            type="submit"> Register</button>
+
+      </div>
+    </div>
+
+  </form>
+
+</div>

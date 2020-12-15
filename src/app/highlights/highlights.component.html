@@ -1,0 +1,82 @@
+<div class="container" fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="20px"
+  >
+  <div fxLayout="column">
+    <div>
+      <h2 style="margin-left: 400px;">Heading</h2>
+    </div>
+    <div class="main-tabs">
+      <mat-tab-group animationDuration="1200ms">
+        <mat-tab label="Our Happy Customers" class="tab1">
+
+          <mat-list>
+            <h3 matSubheader style="font-size: 20px; color: black;">
+              <i class="fas fa-comments"></i>
+              Comments
+            </h3>
+            <mat-list-item>
+              <button mat-stroked-button class="btn">
+                EDIT
+              </button>
+              <button mat-stroked-button class="btn spacer">
+                DELETE
+              </button>
+              <h4 matLine>Title - On which type of service</h4>
+              <p matLine class="demo-2">Description - comment about service</p>
+              <p matLine> Rating 5/5</p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              <button mat-stroked-button>
+                EDIT
+              </button>
+              <button mat-stroked-button>
+                DELETE
+              </button>
+              <h4 matLine>Title - On which type of service</h4>
+              <p matLine class="demo-2">Description - comment about service</p>
+            </mat-list-item>
+          </mat-list>
+        </mat-tab>
+
+        <!-- Second Tab -->
+        <div fxLayout="column" fxLayoutAlign="space-evenly"
+        fxLayoutGap="20px">
+          <mat-tab label="Feedback/Comments">
+            <h3>Post your Comments / Feedback</h3>
+            <div fxFlexOffset="20px">
+              <form class="feedback-form">
+                <div>
+                  <mat-form-field style="width:400px">
+                    <mat-label> Service Name </mat-label>
+                    <input matInput placeholder="Ex. HomeCleaning" value="">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field style="width:400px">
+                    <mat-label> Leave a comment </mat-label>
+                    <textarea matInput placeholder="Ex. Service was upto date..."></textarea>
+                  </mat-form-field>
+                </div>
+                <div style="margin-top: 15px;">
+                  <i class="fas fa-star"></i>
+                  <mat-label> Rating </mat-label>
+                  <mat-slider color="primary" thumbLabel tickInterval="1" min="1" max="5">
+                  </mat-slider>
+                </div>
+                <div style="margin-top: 20px;">
+                  <mat-slide-toggle color="primary"> Slide me! If Satisfied with our Service </mat-slide-toggle>
+                    &nbsp;<i class="fas fa-smile-beam"></i>
+                </div>
+                <div style="margin-top: 35px; margin-left: 250px;">
+
+                  <button style="font-size: 16px;" mat-raised-button class="btn">Post!!</button>
+                </div>
+              </form>
+
+            </div>
+          </mat-tab>
+        </div>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

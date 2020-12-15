@@ -1,0 +1,70 @@
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text{
+  font-size: 18px;
+}
+
+.card{
+  height: 650px;
+  width: 470px;
+}
+
+.scroll{
+  width: 450px;
+  height: 172px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+.mission{
+  background-color: rgb(108, 185, 248);
+}
+
+.text-mission{
+  font-size: 19px;
+  font-weight: bold;
+}
+
+#rocket{
+  margin-left: 70px;
+  font-size: 40px;
+}
+
+.card-dashboard-1{
+  height: 150px;
+  width: 250px;
+  text-align: center;
+  background-color: rgb(42, 61, 236);
+  color: white;
+}
+
+.card-dashboard-2{
+  height: 100px;
+  width: 180px;
+  text-align: center;
+  background-color: rgb(54, 51, 221);
+  color: white;
+}
+
+.card-dashboard-3{
+  height: 100px;
+  width: 180px;
+  text-align: center;
+  background-color: rgb(83, 81, 235);
+  color: white;
+}
+
+.password-card{
+  width: 440px;
+  height: 360px;
+}
+
+button{
+  background-color: black;
+  color: white;
+}

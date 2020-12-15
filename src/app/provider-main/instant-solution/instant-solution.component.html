@@ -1,0 +1,36 @@
+<div>
+  <mat-toolbar class="toolbar">
+    <mat-label> Instant Solution : </mat-label>
+    <span class="flex-spacer"></span>
+    <button mat-raised-button mat-dialog-close style="font-size: 25px;">&times;</button>
+  </mat-toolbar>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="15px">
+  <div fxLayout="column" fxLayoutAlign="center" fxLayoutGap="20px">
+    <h3> Get a Instant Solution on Whatsapp </h3>
+  </div>
+    <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <div fxLayout="column" fxLayoutAlign="space-evenly center"
+        fxLayoutAlign.xs="start center" fxLayoutAlign.sm="start center">
+
+      <mat-form-field appearance="outline">
+        <mat-label> Type  your problem</mat-label>
+        <textarea matInput placeholder="Type your problem here"
+          name="message" type="text" [(ngModel)]="mess.message"
+          #message="ngModel" required>
+        </textarea>
+      </mat-form-field>
+
+        <mat-label>
+          <i class="fas fa-phone-alt"></i>
+          Contact us : 9893334012
+        </mat-label>
+    </div>
+    <div style="margin-top: 30px;" fxLayoutAlign="end">
+      <button mat-raised-button type="submit" >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,60 @@
+.div-top{
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.div-top-card{
+  height: 500px;
+  width: 500px;
+  padding: 0px;
+}
+.div-top-card:hover{
+  box-shadow: 5px 18px 18px rgb(189, 165, 165);
+}
+.card-img-Book{
+  padding: 0px;
+  width: 500px;
+  height: 370px;
+}
+.card-text{
+  margin-left: 35px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.card-btn{
+  width: 500px;
+  height: 60px;
+  text-align: center;
+  padding: 0px;
+  font-size: 19px;
+  letter-spacing: 3px;
+  word-spacing: 4px;
+  color: white;
+  background-color: rgb(4, 0, 255);
+}
+.card-btn:hover{
+  background-color: rgb(35, 35, 236);
+}
+
+.img-dailyservices{
+  width: 300px;
+  height: 250px;
+  transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
+  border-radius: 0.5em;
+}
+.img-dailyservices:hover {
+  transform: scale(1.040);
+}
+
+.div-textonimage{
+  background-image: url("/assets/images/AfterLogin/Main1.jpg") ;
+  background-color: white;
+  width: 1000px;
+  height: 650px;
+}
+
+.text-onimg1 {
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+}
+

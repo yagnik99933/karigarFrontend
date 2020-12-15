@@ -1,0 +1,52 @@
+<div fxLayout="column" fxLayoutAlign="space-evenly center"
+  fxLayoutGap="40px">
+  <mat-card class="main-card" >
+    <mat-card-header>
+      <h2>
+      <mat-label class="text-heading">
+          <!-- Hello {{  this.personName | uppercase}} , <br> -->
+          Thanks for being a part of Karigar .<br><br>
+          List of your previously booked services :
+      </mat-label>
+    </h2>
+    </mat-card-header>
+    <div style="margin-top: 25px;" fxLayout="column" fxLayoutGap="50px">
+      <mat-card *ngFor="let booking of this.previousBookingDetails">
+
+          <mat-card-content >
+            <div fxLayout="row" fxLayoutGap="100px" fxLayoutAlign="center ">
+            <div >
+              <img src='{{ "/assets/images/homepage/" + booking.serviceType +".jpg"}}'>
+            </div>
+            <div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="center">
+              <div>
+                <mat-label class="card-text"> Service &nbsp;:&nbsp; {{ booking.serviceType }} </mat-label><br>
+              </div>
+              <div>
+                <mat-label class="card-text"> Address &nbsp;:&nbsp; {{ booking.houseNo }}&nbsp;
+                  {{ booking.colony }}&nbsp;{{ booking.city }}
+                </mat-label>
+              </div>
+              <div>
+                <mat-label class="card-text"> Date &nbsp;&nbsp;:&nbsp;
+                  {{ booking.date | date }} </mat-label>
+              </div>
+              <div>
+                <mat-label class="card-text"> TimeSlot &nbsp;:&nbsp; {{ booking.timeSlot }} </mat-label>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+      <div class="spinner" [hidden]="this.previousBookingDetails">
+        <mat-spinner mode="indeterminate"></mat-spinner>
+        <h4 style="letter-spacing: 1px; text-align: center;"> Loading . . . . Please Wait</h4>
+      </div>
+    </div>
+
+  </mat-card>
+
+</div>
+<!-- <div *ngIf="!this.previousBookingDetails" style="margin-bottom: 150px;">
+</div> -->

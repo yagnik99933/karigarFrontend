@@ -1,0 +1,108 @@
+<mat-toolbar class="toolbar">
+  -R E G I S T R A T I O N-
+<span class="flex-spacer"></span>
+<button mat-raised-button mat-dialog-close style="font-size: 25px; color: white; background-color: black;">
+  &times;</button>
+</mat-toolbar>
+
+<form noValidate [formGroup]="registerPro" (ngSubmit)="onSubmit()">
+
+  <div fxLayout="column" fxlayoutAlign="space-evenly center">
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+      <mat-form-field appearance="outline" style="width: 200px; font-size: 15px;"
+      [hideRequiredMarker]="hideRequiredControl.value">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput placeholder="Ex. 9876543210" type="tel"
+          formControlName="mobileNo" required name="mobileNo">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 200px; font-size: 15px;"
+      [hideRequiredMarker]="hideRequiredControl.value">
+        <mat-label> E-mail</mat-label>
+        <input matInput placeholder="Ex. abc@xyz.com" type="email"
+          formControlName="email" required name="email">
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+      <mat-form-field appearance="outline" style="width: 200px; font-size: 15px;"
+      [hideRequiredMarker]="hideRequiredControl.value">
+        <mat-label> Password </mat-label>
+        <input matInput placeholder="********" type="password"
+          formControlName="password" required name="password">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 200px; font-size: 15px;"
+      [hideRequiredMarker]="hideRequiredControl.value">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput placeholder="********" type="password"
+          formControlName="confirmPassword" required>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+      <mat-form-field appearance="outline" style="width: 200px; font-size: 15px;"
+      [hideRequiredMarker]="hideRequiredControl.value">
+        <mat-label> Name </mat-label>
+        <input matInput placeholder="Ex. Rohit Sharma" type="text"
+          formControlName="name" name="name" required>
+      </mat-form-field>
+
+      <!-- <p>Please select your city:</p> -->
+      <mat-form-field style="width:200px; font-size: 15px;" appearance="outline">
+        <mat-label>Select city</mat-label>
+        <mat-select formControlName="city" name="city">
+          <mat-option *ngFor="let city of cities" [value]="city.value">
+            {{ city.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <!-- Agar city Dewas Select Hogi toh ye div Hidden rhega -->
+    <div *ngIf="registerPro.value.city =='Indore'">
+
+        <ng-select [items]="areas"
+        placeholder="Can select multiple area"
+        appendTo="body"
+        [multiple]="true" [closeOnSelect]="false"
+        formControlName="area"
+        name="area">
+      <ng-template ng-option-tmp let-item="item">
+        <input [checked]="registerPro.value.area.indexOf(item) > -1" type="checkbox">
+          {{item}}
+        </ng-template>
+        </ng-select>
+      </div>
+
+      <mat-form-field style="width:200px; font-size: 15px;" appearance="outline">
+        <mat-label> Select your service </mat-label>
+        <mat-select formControlName="serviceType" name="serviceType">
+          <mat-option>-- None --</mat-option>
+          <mat-optgroup *ngFor="let group of serviceGroups" [label]="group.name" [disabled]="group.disabled">
+            <mat-option *ngFor="let service of group.services" [value]="service.value" #service>
+              {{ service.viewValue }}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <mat-checkbox color="primary" required>
+        By Registering You Agree to Terms & Conditions</mat-checkbox>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <!-- <mat-dialog-actions> -->
+        <button class="btn" mat-raised-button mat-dialog-close>Cancel</button>
+        <button class="btn" mat-raised-button  [disabled]="registerPro.invalid" type="submit">Register</button>
+      <!-- </mat-dialog-actions> -->
+    </div>
+  </div>
+</form>

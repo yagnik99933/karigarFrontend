@@ -1,0 +1,84 @@
+// .main-card{
+//   // background-color: rgb(140, 198, 246);
+//  background-color: rgba(28, 201, 207, 0.65);
+
+// }
+
+// button{
+//   font-size: 19px;
+//   height: 90px;
+//   width: 200px;
+//   color: white;
+//   background-color: black;
+//   text-align: center;
+//   padding: 0;
+// }
+
+// button:hover{
+//   box-shadow: 5px 12px 12px rgb(161, 138, 138);
+// }
+
+// .tooltip {
+//   position: relative;
+//   display: inline-block;
+//   border-bottom: 1px dotted black;
+// }
+
+// .tooltip .tooltiptext {
+//   visibility: hidden;
+//   width: 200px;
+//   height: 200px;
+//   background-color: white;
+//   color: black;
+//   text-align: center;
+//   border-radius: 6px;
+//   padding: 5px 0;
+//   /* Position the tooltip */
+//   position: absolute;
+//   z-index: 1;
+// }
+
+// .tooltip:hover .tooltiptext {
+//   visibility: visible;
+// }
+
+
+
+
+// New One
+.div-top{
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.div-top-card{
+  height: 500px;
+  width: 500px;
+  padding: 0px;
+}
+.div-top-card:hover{
+  box-shadow: 5px 18px 18px rgb(189, 165, 165);
+}
+.card-img-Book{
+  padding: 0px;
+  width: 500px;
+  height: 370px;
+}
+.card-text{
+  margin-left: 35px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.card-btn{
+  width: 500px;
+  height: 60px;
+  text-align: center;
+  padding: 0px;
+  font-size: 19px;
+  letter-spacing: 3px;
+  word-spacing: 4px;
+  color: white;
+  background-color: rgb(4, 0, 255);
+}
+.card-btn:hover{
+  background-color: rgb(35, 35, 236);
+}

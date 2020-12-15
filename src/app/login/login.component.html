@@ -1,0 +1,80 @@
+<mat-toolbar class="toolbar">
+  -L O G I N-
+<span class="flex-spacer"></span>
+<button mat-raised-button mat-dialog-close style="font-size: 25px;">&times;</button>
+</mat-toolbar>
+
+<div class="loginform" fxLayout="row"
+  fxLayoutGap="40px"
+  fxLayoutAlign="space-evenly center">
+  <!-- Form Start -->
+  <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit(user.providerlogin)">
+    <mat-dialog-content>
+      <div fxLayoutGap="20px">
+
+        <!-- Enter Username -->
+        <mat-form-field appearance="outline"
+          [hideRequiredMarker]="hideRequiredControl.value">
+          <mat-label>Enter Mobile Number</mat-label>
+
+          <input matInput placeholder="Contact Number" type="tel" [(ngModel)]="user.mobileNo"
+           name="mobileNo" #username="ngModel" required>
+           <!-- If username invalid -->
+           <label [hidden]="username.untouched || username.valid"
+            *ngIf="username.errors?.required" matSuffix matTooltip="Username Required">
+            <mat-icon id="error_symbol" class="material-icons">
+              error_outline
+            </mat-icon>
+          </label>
+        </mat-form-field>
+      </div>
+
+      <!-- Enter Password -->
+      <div>
+        <mat-form-field appearance="outline"
+        [hideRequiredMarker]="hideRequiredControl.value">
+          <mat-label>Enter your password</mat-label>
+
+          <input matInput [type]="hide ? 'password' : 'text'"
+            placeholder="******" name="password" [(ngModel)]="user.password"
+            #password="ngModel" required >
+
+          <button [hidden]="password.isDisabled" style="font-size: 10px;"
+            type="button" mat-icon-button matSuffix (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'" [attr.aria-pressed]= "hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <!-- if password invalid  -->
+          <label [hidden]="password.untouched || password.valid"
+          *ngIf="password.errors?.required" matSuffix>
+            <mat-icon id="error_symbol" class="material-icons">
+              error_outline
+            </mat-icon>
+           </label>
+          <!-- Yaha eye-symbol replace nahi ho rha hai error-symbol se -->
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+
+    <div>
+      <mat-checkbox name="providerlogin" color="primary" [(ngModel)]="user.providerlogin"
+      #providerlogin>
+        <mat-label style="font-size: 16px;"
+        matTooltip="If You are Helper, Please check it.">
+        Login As Helper
+      </mat-label>
+      </mat-checkbox>
+    </div>
+    <!-- <p *ngIf="this.error && this.user.providerlogin"  style="color: red;">
+      Enter valid username or password.
+    </p> -->
+
+    <div style="margin-top: 30px;">
+      <mat-dialog-actions>
+        <span class="flex-spacer"></span>
+        <button class="btn-login" mat-raised-button type="submit"><span> Login</span></button>&nbsp;&nbsp;
+        <button mat-raised-button mat-dialog-close>Cancel</button>
+      </mat-dialog-actions>
+    </div>
+    </form>
+</div>

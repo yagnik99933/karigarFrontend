@@ -1,0 +1,159 @@
+<mat-toolbar class="toolbar">
+  <span><img></span>
+  <!-- Buttons hide after login -->
+  <button *ngIf="!authService.loggedIn()" mat-flat-button class="btn" routerLink="/home"
+     routerLinkActive="active">
+    <i class="fas fa-home"></i>
+    Home
+  </button>
+  <button style="margin-left: 12px;" *ngIf="!authService.loggedIn()" mat-flat-button class="btn"
+  (click)="toServices()">
+    <span class="material-icons">room_service</span>
+    Services
+  </button>
+
+  <button style="margin-left: 12px;" *ngIf="!authService.loggedIn()" mat-flat-button class="btn">
+    <span class="material-icons">work</span>
+    Why choose us
+  </button>
+
+
+  <!-- Buttons common for both user and provider  -->
+  <button *ngIf="authService.loggedIn()" mat-flat-button (click)="openDashboard()" class="btn"
+    routerLinkActive="active">
+    <span class="material-icons">dashboard</span>
+    Dashboard
+  </button>
+
+  <!-- <button *ngIf="authService.loggedIn()" mat-flat-button (click)="openDashboard()" class="btn"
+    routerLinkActive="active">
+    <span class="material-icons">history_edu</span>
+    Our Story
+  </button> -->
+
+  <!-- Buttons for user only  -->
+  <button *ngIf="authService.loggedIn() && this.customHeader()" mat-flat-button class="btn"
+    [routerLink]="['user/',this.Id,'confirmation']" routerLinkActive="active">
+    <span class="material-icons">shopping_cart</span>
+    Book Now
+  </button>
+
+  <!-- Buttons for provider only  -->
+  <button *ngIf="authService.loggedIn() && !this.user && !this.customHeader()" mat-raised-button
+    class="btn-notification" [matMenuTriggerFor]="menu">
+    <mat-icon [matBadge]="this.notificationCount" matBadgeSize="medium" matBadgeColor="warn"
+      matBadgePosition="above after" matBadgeOverlap=false>
+      notifications
+    </mat-icon>
+  </button>
+
+
+  <div class="notification-card">
+    <mat-menu #menu="matMenu" class="menu-notification">
+      <mat-toolbar class="notificationbarheading">
+        <h1 style="color: white; letter-spacing: 3px; font-size: 17px;">
+          -Notifications-
+        </h1>
+      </mat-toolbar>
+      <hr>
+      <div *ngFor="let notification of notifications">
+        <mat-card class="notification-card">
+          <mat-card-title>
+            <!-- <mat-card-header>Booking Details</mat-card-header> -->
+            <mat-card-subtitle class="notification-content">
+              Name &nbsp;&nbsp;&nbsp;&nbsp; :- &nbsp;&nbsp;
+              {{ notification.name | titlecase }}
+            </mat-card-subtitle>
+
+            <mat-card-subtitle class="notification-content">
+              Address &nbsp;&nbsp;:- &nbsp;&nbsp; {{ notification.houseNo }}
+              ,&nbsp;{{ notification.colony | titlecase }} &nbsp;
+              {{ notification.area | titlecase}}
+
+            </mat-card-subtitle>
+
+            <mat-card-subtitle class="notification-content">
+              Date &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:- &nbsp;&nbsp;&nbsp;
+              {{ notification.date | date }}
+            </mat-card-subtitle>
+
+            <mat-card-subtitle class="notification-content">
+              TimeSlot &nbsp;:- &nbsp;&nbsp; {{ notification.timeSlot }}
+            </mat-card-subtitle>
+
+            <div style="font-size: 14px; padding: 0px;
+              margin-left: 160px; color: grey;">
+              {{ notification.createdAt | date:'shortTime' }}
+            </div>
+
+          </mat-card-title>
+          <div style="margin-left: 100px;">
+            <mat-card-actions>
+              <button class="btn-accept" mat-raised-button (click)="acceptNotification(notification._id)">
+                ACCEPT
+                <span class="material-icons" id="btn-tick">done</span>
+              </button>
+            </mat-card-actions>
+          </div>
+
+        </mat-card>
+      </div>
+      <div *ngIf="this.notificationCount==null">
+        <mat-label>There are no notifications right now</mat-label>
+      </div>
+    </mat-menu>
+  </div>
+
+
+  <span class="flex-spacer"></span>
+
+  <button style="margin-right: 12px;"  mat-flat-button class="btn" *ngIf="!authService.loggedIn()"
+    (click)="toRegister()">
+    <span class="material-icons">how_to_reg</span>
+    &nbsp;Register
+</button>
+
+  <button mat-stroked-button class="btn btn-login-out" *ngIf="!authService.loggedIn()" (click)="openLoginForm()">
+    <i class="fas fa-sign-in-alt"></i>
+    &nbsp;Login
+  </button>
+
+
+  <div fxFlexOffset="180px">
+    <div *ngIf="authService.loggedIn() && this.user">
+        <button style="margin-right: 12px;" mat-flat-button class="btn" (click)="openUserProfile()" routerLinkActive="active">
+          <i class="fas fa-user-tie"></i>
+            Profile
+        </button>
+    </div>
+
+    <div *ngIf="authService.loggedIn() && !this.user">
+      <button style="margin-right: 12px;" mat-flat-button class="btn" (click)="openProviderProfile()">
+        <i class="fas fa-user-cog"></i>
+          Profile
+      </button>
+    </div>
+  </div>
+
+  <button mat-stroked-button class="btn btn-login-out" *ngIf="authService.loggedIn()"
+    (click)="authService.logoutUser()">
+    <i class="fas fa-sign-in-alt"></i>
+    &nbsp;Logout
+  </button>
+
+</mat-toolbar>
+
+<div *ngIf="authService.loggedIn() && this.user" class="container jumbotron" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="start"
+  fxLayoutAlign.xs="start center" fxLayoutAlign.sm="start center" fxLayoutAlign.gt-sm="center center"
+  fxLayoutGap="200px">
+  <!-- <div>
+    <img src="" alt="Logo">
+  </div>
+  <div>
+    <span class="span1-tagline">WORKMEN</span><br>
+    <span class="span2-tagline">YOU CAN TRUST</span>
+  </div> -->
+
+
+
+</div>

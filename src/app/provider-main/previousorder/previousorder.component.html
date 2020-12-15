@@ -1,0 +1,66 @@
+<div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="40px">
+  <mat-card class="main-card">
+<div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="center">
+  <div>
+    <mat-label class="text-heading">
+      <!-- Hello {{  this.personName | uppercase}} , <br> -->
+      Thanks for being a part of Karigar .<br>
+    </mat-label>
+  </div>
+  <div fxFlexAlign="center">
+    <span class="text-heading" style="color: blue;"> List of your Pervious Orders </span>
+  </div>
+
+</div>
+
+    <div style="margin-top: 20px;" fxLayout="column" fxLayoutGap="50px">
+      <mat-card *ngFor="let order of this.orderDetails">
+
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutGap="100px" fxLayoutAlign="center ">
+            <div>
+              <img src='{{ "/assets/images/homepage/" + order.serviceType +".jpg"}}'>
+            </div>
+            <div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="center">
+              <div>
+                <mat-label class="card-text"> Address &nbsp;:&nbsp; {{ order.houseNo }}&nbsp;
+                  {{ order.colony }}&nbsp;{{ order.city }}
+                </mat-label>
+              </div>
+              <div>
+                <mat-label class="card-text"> Date &nbsp;&nbsp;:&nbsp;
+                  {{ order.date | date }} </mat-label>
+              </div>
+              <div>
+                <mat-label class="card-text"> TimeSlot &nbsp;:&nbsp; {{ order.timeSlot }} </mat-label>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <div *ngIf="this.orderCount === 0">
+        <mat-card class="no-previous">
+          <div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="30px">
+            <div fxFlexOffset="220px">
+              <mat-label style="font-size: 26px; font-weight: bold; letter-spacing: 4px; word-spacing: 4px;
+              text-align: center;">
+                Karigar Says :
+              </mat-label>
+            </div>
+            <div>
+              <mat-label style="font-size: 20px; font-weight: bold; letter-spacing: 2px; word-spacing: 2px;
+              text-align: center; margin-right: 20px;"> You have no previous orders. </mat-label>
+            </div>
+          </div>
+
+        </mat-card>
+      </div>
+      <div class="spinner" [hidden]="this.orderDetails">
+        <mat-spinner mode="indeterminate"></mat-spinner>
+        <h4 style="letter-spacing: 1px; text-align: center;"> Loading . . . . Please Wait</h4>
+      </div>
+      <div>
+      </div>
+    </div>
+  </mat-card>
+</div>

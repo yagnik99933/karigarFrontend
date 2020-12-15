@@ -1,0 +1,59 @@
+<div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="25px">
+  <mat-toolbar style="text-align: center;  background-color: black">
+    <mat-label style="letter-spacing: 1px; word-spacing: 1px; color: white;">
+      Send us your feedback!
+    </mat-label>
+    <span class="flex-spacer"></span>
+    <button mat-flat-button mat-dialog-close
+      style="font-size: 25px; background-color: black; color: white;">&times;</button>
+  </mat-toolbar>
+
+  <div fxLayout="column" fxLayoutGap="25px" fxLayoutAlign="center">
+
+    <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+      <div fxFlexAlign="center">
+        <mat-label class="main-heading"> We would like your feedback to improve our website. </mat-label>
+      </div>
+      <div fxFlexAlign="center">
+        <mat-label style="margin: 20px; margin-left: 0px;" class="sub-heading"> How was your experience on this website ? </mat-label>
+      </div>
+      <div fxLayoutGap="5px" fxFlexAlign="center">
+
+        <mat-selection-list class="rating-list" *ngFor="let star of stars"
+        style="display: inline-block;">
+          <mat-list-item class="star" (click)="countStar(star)"
+            [ngClass]="{'selected': (star <= starCount)}">
+            <i class="fa fa-star"></i>
+          </mat-list-item>
+        </mat-selection-list>
+      </div>
+      <!-- Star div ends -->
+      <div fxFlexAlign="center" style="margin: 20px; margin-left: 0px;" >
+        <mat-label class="sub-heading"> Please select your feedback category below :</mat-label>
+      </div>
+      <div fxLayoutGap="30px" fxFlexAlign="center">
+        <mat-radio-group formControlName="category">
+          <mat-radio-button *ngFor="let x of category" [value]="x" color="primary" style="margin-left: 14px;">
+            {{ x }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div fxFlexAlign="center">
+        <mat-form-field style="width: 350px; font-size: 18px; margin: 20px;" appearance="outline">
+          <mat-label> Feel free to drop us a line ... </mat-label>
+          <textarea matInput placeholder="Please leave your feedback " type="text"
+            formControlName="comment" >
+          </textarea>
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="space-evenly center">
+          <button mat-flat-button mat-dialog-close class="btn">
+            Cancel
+          </button>
+          <button mat-flat-button mat-dialog-close class="btn" type="submit">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

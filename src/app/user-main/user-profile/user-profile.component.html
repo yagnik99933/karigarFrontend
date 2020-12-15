@@ -1,0 +1,248 @@
+<div style="margin-top: 40px;" fxLayout="row" fxLayoutAlign="space-evenly center">
+  <mat-card style="width: 1000px;" *ngIf="proDetails">
+    <div>
+      <img src="/assets/images/Profile.jpg" alt="Logo" width="500px" height="450px">
+    </div>
+    <div fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="center" fxFlexOffset="100px">
+      <mat-label style="margin-left: 30px; font-size: 24px; font-weight: bold; letter-spacing: 1px; word-spacing: 2px;">
+        {{ proDetails.name | uppercase }}
+      </mat-label>
+      <mat-label style="font-size: 24px; font-weight: bold; letter-spacing: 1px; word-spacing: 2px;">
+        <i class="fas fa-phone-alt"></i>
+        {{ proDetails.mobileNo }}
+      </mat-label>
+      <br>
+      <mat-label style="font-size: 20px; font-weight: bold; letter-spacing: 1px; word-spacing: 2px;">
+        <i class="fas fa-address-card"></i>
+        {{ proDetails.city }}
+      </mat-label>
+      <mat-label style="font-size: 20px; font-weight: bold; letter-spacing: 1px; word-spacing: 2px;">
+        <i class="fas fa-envelope"></i>
+        {{ proDetails.email }}
+      </mat-label>
+      <br>
+      <mat-card class="card-dashboard-1">
+          <mat-label style="letter-spacing: 2px; word-spacing: 2px; text-align: center;
+            margin-top: 50px; font-size: 24px; font-weight: bold;">
+            Total bookings <br> with Karigar : <br> <br>10</mat-label>
+      </mat-card>
+    </div>
+  </mat-card>
+</div>
+
+
+
+<div class="mission" fxLayout="column" fxLayoutAlign="space-evenly center" style="margin-top: 60px;">
+  <mat-list>
+    <mat-list-item>
+      <h1 style="letter-spacing: 4px;"> Our &nbsp; Mission </h1>
+      <i id="rocket" class="fas fa-rocket"></i>
+    </mat-list-item>
+  </mat-list>
+  <div fxLayout="column" fxLayoutAlign="space-evenly center" style="margin-top: 40px;">
+    <mat-list>
+      <mat-list-item class="text-mission">
+        <i class="fas fa-dot-circle"></i> &nbsp; &nbsp;
+        On length – While many companies favor the one-liner approach.
+      </mat-list-item>
+      <mat-list-item class="text-mission">
+        <i class="fas fa-dot-circle"></i> &nbsp; &nbsp;
+        vision and mission statements can be as long as a couple paragraphs.
+      </mat-list-item>
+      <mat-list-item class="text-mission">
+        <i class="fas fa-dot-circle"></i> &nbsp; &nbsp;
+        Take Apple’s vision and mission, shared on the Panmore Institute.
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="cover">
+  <img src="/assets/images/Profile.png" alt="Logo" width="1056px" height="200px">
+</div>
+
+<div class="container" fxLayoutGap="100px">
+  <div fxFlexOffset="130px" fxLayoutAlign="space-evenly center" fxLayoutGap="30px">
+    <mat-card class="card">
+      <mat-label>
+        <h1> Personal Info :</h1>
+      </mat-label>
+        <mat-label class="text"> First Name : </mat-label> &nbsp;
+        <mat-form-field appearance="outline">
+          <input matInput type="text" value="Vaibhav" readonly>
+        </mat-form-field>
+        <br>
+        <mat-label class="text"> Last Name : </mat-label> &nbsp;
+        <mat-form-field appearance="outline">
+          <input matInput type="text" value="Dashore" readonly>
+        </mat-form-field>
+        <br>
+        <mat-label class="text">Contact Number : </mat-label> &nbsp;
+        <mat-form-field appearance="outline">
+          <input matInput type="text" value="+(91) 92434534554">
+        </mat-form-field>
+        <br>
+        <mat-label class="text">E-Mail : </mat-label> &nbsp;
+        <mat-form-field appearance="outline">
+          <input matInput type="email" value="vaibhavdashore63@gmail.com">
+        </mat-form-field>
+        <br>
+        <mat-label class="text">Address : </mat-label> &nbsp;
+        <mat-form-field appearance="outline">
+          <input matInput type="text" value="123 Scheme 74 VijayNagar">
+        </mat-form-field>
+
+        <br>
+        <mat-label class="text">City : </mat-label> &nbsp;
+        <mat-form-field appearance="outline">
+          <input matInput type="text" value="Dewas">
+        </mat-form-field>
+
+    </mat-card>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="20px">
+    <mat-card>
+      <mat-label>
+        <h1> Previous Bookings :</h1>
+      </mat-label>
+      <div class="scroll">
+        <mat-list>
+          <mat-list-item>
+            <label style="font-size: 20px;">
+              <i class="fas fa-arrow-alt-circle-right"></i>
+            </label> &nbsp;  &nbsp;
+            <mat-label class="text">
+              Service Type : Plumber
+            </mat-label>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-label class="text">
+              Date : 20/7/2020
+            </mat-label>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-label class="text">
+              Time : 10:00am - 01:00pm
+            </mat-label>
+          </mat-list-item>
+        </mat-list>
+        <mat-list>
+          <mat-list-item>
+            <label style="font-size: 20px;">
+              <i class="fas fa-arrow-alt-circle-right"></i>
+            </label> &nbsp;  &nbsp;
+            <mat-label class="text">
+              Service Type : Plumber
+            </mat-label>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-label class="text">
+              Date : 20/7/2020
+            </mat-label>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-label class="text">
+              Time : 10:00am - 01:00pm
+            </mat-label>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-card>
+
+
+    <div>
+      <mat-card class="password-card">
+        <h2> Password Settings :</h2>
+        <mat-label class="text">Current Password : </mat-label> &nbsp;
+        <mat-form-field appearance="outline">
+          <input matInput type="password" value="6724345345543">
+        </mat-form-field>
+        <br>
+        <mat-label class="text">New Password : </mat-label> &nbsp;
+        <mat-form-field appearance="outline">
+          <input matInput type="password" value="6724345345543">
+        </mat-form-field>
+        <br>
+        <mat-label class="text">Re-Enter Password : </mat-label> &nbsp;
+        <mat-form-field appearance="outline">
+          <input matInput type="password" value="6724345345543">
+        </mat-form-field>
+        <div fxLayoutAlign="end">
+        <mat-card-actions>
+          <button mat-raised-button> Save Password </button>
+        </mat-card-actions>
+      </div>
+      </mat-card>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+<div class="dashboard" style="margin-top: 70px;"
+ fxLayoutAlign="space-evenly center" fxLayoutgap="20px">
+  <div>
+    <mat-card class="card-dashboard-1">
+      <mat-card-content>
+        <h2> Order Recivied <br> Through Us: <br> <br>10</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="card-dashboard-2">
+      <mat-card-content>
+        <h2> No of times You<br> were Suggested: <br> <br> 10</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="card-dashboard-3">
+      <mat-card-content>
+        <h2> Total <br> Opportunities: <br> <br> 10</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
+<div class="mission" fxLayout="column" fxLayoutAlign="space-evenly center"
+  style="margin-top: 60px;">
+  <mat-list>
+      <mat-list-item>
+        <h1 style="letter-spacing: 4px;"> Our &nbsp; Mission </h1>
+        <i id="rocket" class="fas fa-rocket"></i>
+      </mat-list-item>
+  </mat-list>
+  <div fxLayout="column" fxLayoutAlign="space-evenly center" style="margin-top: 40px;">
+    <mat-list>
+      <mat-list-item class="text-mission">
+        <i class="fas fa-dot-circle"></i> &nbsp; &nbsp;
+        On length – While many companies favor the one-liner approach.
+      </mat-list-item>
+      <mat-list-item class="text-mission">
+        <i class="fas fa-dot-circle"></i> &nbsp; &nbsp;
+        vision and mission statements can be as long as a couple paragraphs.
+      </mat-list-item>
+      <mat-list-item class="text-mission">
+        <i class="fas fa-dot-circle"></i> &nbsp; &nbsp;
+        Take Apple’s vision and mission, shared on the Panmore Institute.
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+</div> -->

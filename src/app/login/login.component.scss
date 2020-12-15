@@ -1,0 +1,62 @@
+.loginform{
+margin-top: 20px;
+}
+
+.toolbar {
+  background-color: black;
+  color: white;
+}
+
+button{
+  background-color: black;
+  color: white;
+  max-width: 100%;
+  font-size: 18px;
+  text-align: center;
+}
+
+.btn-login span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-login span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -10px;
+  transition: 0.5s;
+}
+
+.btn-login:hover span{
+  padding-right: 15px;
+}
+
+.btn-login:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+mat-form-field{
+  width:320px;
+}
+
+#error_symbol{
+  color: red;
+}
+// example-right-align {
+//   text-align: right;
+// }
+
+
+// input.example-right-align::-webkit-outer-spin-button,
+// input.example-right-align::-webkit-inner-spin-button {
+//   display: none;
+// }
+
+// input.example-right-align {
+//   -moz-appearance: textfield;
+// }
